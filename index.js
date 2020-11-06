@@ -257,16 +257,17 @@ it returns an array with names of artists who were born in and died in 20th cent
 example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 
-function get20s(artists /*Your Code Here*/) {
+function get20s(array /*Your Code Here*/) {
   let in20s = [];
-  for (let i = 0; i < artists.length; i++) {
-    if (artists[i].years.includes("19 - 2")) {
-      in20s.push(artists[i].years);
+  for (let i = 0; i < array.length; i++) {
+    let year = array[i].years.split(" - ");
+    if (year[0] > 1900 && year[1] < 2000) {
+      in20s.push(artists[i].name);
     }
-    return in20s;
-    console.log(in20s);
-  } /*Your Code Here*/
+  }
+  return in20s; /*Your Code Here*/
 }
+get20s(artists);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Create a function called `removeArtist` that takes two arguments:
